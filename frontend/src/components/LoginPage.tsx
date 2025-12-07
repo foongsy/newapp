@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, FormEvent } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -8,10 +8,10 @@ export function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     // Dummy login - no backend logic
-    console.log('Login attempted with:', { email, password })
+    console.log('Login attempt for user:', email)
     alert(`Login attempted with email: ${email}`)
   }
 
@@ -34,6 +34,7 @@ export function LoginPage() {
                 placeholder="name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
                 required
               />
             </div>
@@ -45,6 +46,7 @@ export function LoginPage() {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
                 required
               />
             </div>
@@ -54,6 +56,7 @@ export function LoginPage() {
                   type="checkbox"
                   id="remember"
                   className="h-4 w-4 rounded border-gray-300"
+                  autoComplete="on"
                 />
                 <Label
                   htmlFor="remember"
