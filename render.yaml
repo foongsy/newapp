@@ -8,7 +8,7 @@ projects:
     - type: web
       name: fullapp-fe
       runtime: static
-      repo: https://github.com/foongsy/min-monorepo
+      repo: https://github.com/foongsy/newapp
       buildCommand: bun run build
       staticPublishPath: dist
       autoDeployTrigger: commit
@@ -16,7 +16,7 @@ projects:
     - type: web
       name: fullapp-be
       runtime: python
-      repo: https://github.com/foongsy/min-monorepo
+      repo: https://github.com/foongsy/newapp
       plan: free
       envVars:
       - key: ENV
